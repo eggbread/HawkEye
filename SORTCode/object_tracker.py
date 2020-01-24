@@ -97,7 +97,7 @@ if __name__ == '__main__':
     cnt = 0;
     for ii in range(1000):
         ret, frame = vid.read()
-        # frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         pilimg = Image.fromarray(frame)
         detections = detect_image(pilimg)
         img = np.array(pilimg)

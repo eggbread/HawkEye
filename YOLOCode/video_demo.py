@@ -12,7 +12,8 @@ import pandas as pd
 import random 
 import pickle as pkl
 import argparse
-
+from sort import *
+from PIL import Image
 
 def get_test_input(input_dim, CUDA):
     img = cv2.imread("dog-cycle-car.png")
@@ -42,20 +43,21 @@ def prep_image(img, inp_dim):
     return img_, orig_im, dim
 
 def write(x, img):
-    c1 = tuple(x[1:3].int())
-    c2 = tuple(x[3:5].int())
+    x = torch.tensor(x)
+    c1 = tuple(x[0:2].int())
+    c2 = tuple(x[2:4].int())
     cls = int(x[-1])
     label = "{0}".format(classes[cls])
-    label+=" "
+    label+=" "+str(int(x[4].item()))+" "
     confidence = int((x[3]*x[4]).item())
-    if(x[1])
     if confidence==0:
       return;
     label += str(confidence)
     color = random.choice(colors)
-    cv2.rectangle(img, c1, c2,color, 1)
+    cv2.rectangle(img, c1, c2,color, 3)
     t_size = cv2.getTextSize(label, cv2.FONT_HERSHEY_PLAIN, 1 , 1)[0]
     c2 = c1[0] + t_size[0] + 3, c1[1] + t_size[1] + 4
+    
     cv2.rectangle(img, c1, c2,color, -1)
     cv2.putText(img, label, (c1[0], c1[1] + t_size[1] + 4), cv2.FONT_HERSHEY_PLAIN, 1, [225,255,255], 1);
     return img
@@ -65,8 +67,6 @@ def arg_parse():
     Parse arguements to the detect module
     
     """
-    
-    
     parser = argparse.ArgumentParser(description='YOLO v3 Video Detection Module')
    
     parser.add_argument("--video", dest = 'video', help = 
@@ -85,7 +85,6 @@ def arg_parse():
                         "Input resolution of the network. Increase to increase accuracy. Decrease to increase speed",
                         default = "416", type = str)
     return parser.parse_args()
-
 
 if __name__ == '__main__':
     args = arg_parse()
@@ -125,76 +124,7 @@ if __name__ == '__main__':
     
     frames = 0
     start = time.time()    
-    # fourcc = cv2.VideoWriter_fourcc(*'MJPG')
-    # out = cv2.VideoWriter('output.avi',fourcc, 20.0, (640,480))
-
-    # while cap.isOpened():
-        
-    #     ret, frame = cap.read()
-        
-    #     if ret:
-            
-            
-    #         img, orig_im, dim = prep_image(frame, inp_dim)
-            
-    #         im_dim = torch.FloatTensor(dim).repeat(1,2)                        
-    #         # print(img)
-            
-    #         if CUDA:
-    #             im_dim = im_dim.cuda()
-    #             img = img.cuda()
-            
-    #         with torch.no_grad():   
-    #             output = model(Variable(img), CUDA)
-    #         output = write_results(output, confidence, num_classes, nms = True, nms_conf = nms_thesh)
-            
-    #         if type(output) == int:
-    #             frames += 1
-    #             print("FPS of the video is {:5.2f}".format( frames / (time.time() - start)))
-    #             cv2.imshow("frame", orig_im)
-    #             key = cv2.waitKey(1)
-    #             if key & 0xFF == ord('q'):
-    #                 break
-    #             continue
-            
-            
-
-            
-    #         im_dim = im_dim.repeat(output.size(0), 1)
-    #         scaling_factor = torch.min(inp_dim/im_dim,1)[0].view(-1,1)
-            
-    #         output[:,[1,3]] -= (inp_dim - scaling_factor*im_dim[:,0].view(-1,1))/2
-    #         output[:,[2,4]] -= (inp_dim - scaling_factor*im_dim[:,1].view(-1,1))/2
-            
-    #         output[:,1:5] /= scaling_factor
     
-    #         for i in range(output.shape[0]):
-    #             output[i, [1,3]] = torch.clamp(output[i, [1,3]], 0.0, im_dim[i,0])
-    #             output[i, [2,4]] = torch.clamp(output[i, [2,4]], 0.0, im_dim[i,1])
-            
-    #         classes = load_classes('data/coco.names')
-    #         colors = pkl.load(open("pallete", "rb"))
-            
-    #         list(map(lambda x: write(x, orig_im), output))
-    #         # cv2.imwrite("frame%d.jpg" % frames, orig_im)
-            
-    #         cv2.imshow('frame', frame)
-    #         # framee = cv2.flip(orig_im,0)
-    #         out.write(orig_im)
-    #         key = cv2.waitKey(1)
-    #         if key & 0xFF == ord('q'):
-    #             break
-    #         frames += 1
-    #         print("FPS of the video is {:5.2f}".format( frames / (time.time() - start)))
-    #         print(frames)
-    #         if frames == 10:
-    #             break
-            
-    #     else:
-    #         break
-    # cap.release()
-    # out.release()
-    # cv2.destroyAllWindows()
     if (cap.isOpened() == False): 
       print("Unable to read camera feed")
     
@@ -205,18 +135,18 @@ if __name__ == '__main__':
     
     # Define the codec and create VideoWriter object.The output is stored in 'outpy.avi' file.
     out = cv2.VideoWriter('outpy.avi',cv2.VideoWriter_fourcc('M','J','P','G'), 10, (frame_width,frame_height))
-    
+    mot_tracker = Sort() 
     while cap.isOpened():
         
         ret, frame = cap.read()
-        
+        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         if ret:
             
             
             img, orig_im, dim = prep_image(frame, inp_dim)
             
             im_dim = torch.FloatTensor(dim).repeat(1,2)                        
-            # print(img)
+            
             
             if CUDA:
                 im_dim = im_dim.cuda()
@@ -234,9 +164,6 @@ if __name__ == '__main__':
                     break
                 continue
             
-            
-
-            
             im_dim = im_dim.repeat(output.size(0), 1)
             scaling_factor = torch.min(inp_dim/im_dim,1)[0].view(-1,1)
             
@@ -251,20 +178,20 @@ if __name__ == '__main__':
             
             classes = load_classes('data/coco.names')
             colors = pkl.load(open("pallete", "rb"))
+            detections = output[:,1:]
             
-            list(map(lambda x: write(x, orig_im), output))
-            # cv2.imwrite("frame%d.jpg" % frames, orig_im)
+            if detections is not None:
+                tracked_objects = mot_tracker.update(detections.cpu())
+                list(map(lambda x: write(x, orig_im), tracked_objects))
+                print("Accuracy : ",len(tracked_objects)/len(detections)*100,"%")
             
-            # cv2.imshow('frame', frame)
-            # framee = cv2.flip(orig_im,0)
             out.write(orig_im)
             key = cv2.waitKey(1)
             if key & 0xFF == ord('q'):
                 break
             frames += 1
             print("FPS of the video is {:5.2f}".format( frames / (time.time() - start)))
-            # print(frames)
-            if frames == 200:
+            if frames == 500:
                 break
             
         else:
