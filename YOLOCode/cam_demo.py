@@ -72,7 +72,7 @@ def arg_parse():
 
 if __name__ == '__main__':
     cfgfile = "cfg/yolov3.cfg"
-    weightsfile = "yolov3.weights"
+    weightsfile = "../../yolov3.weights"
     num_classes = 80
 
     args = arg_parse()
@@ -116,7 +116,7 @@ if __name__ == '__main__':
             
             img, orig_im, dim = prep_image(frame, inp_dim)
             
-#            im_dim = torch.FloatTensor(dim).repeat(1,2)                        
+            im_dim = torch.FloatTensor(dim).repeat(1,2)                        
             
             
             if CUDA:
@@ -140,7 +140,7 @@ if __name__ == '__main__':
         
             output[:,1:5] = torch.clamp(output[:,1:5], 0.0, float(inp_dim))/inp_dim
             
-#            im_dim = im_dim.repeat(output.size(0), 1)
+            im_dim = im_dim.repeat(output.size(0), 1)
             output[:,[1,3]] *= frame.shape[1]
             output[:,[2,4]] *= frame.shape[0]
 

@@ -109,11 +109,11 @@ if __name__ == '__main__':
     if CUDA:
         model.cuda().half()
         
-    model(get_test_input(inp_dim, CUDA), CUDA)
+#     model(get_test_input(inp_dim, CUDA), CUDA)
 
-    model.eval()
+#     model.eval()
     
-    videofile = 'video.avi'
+    videofile = 'sample.mp4'
     
     cap = cv2.VideoCapture(videofile)
     
