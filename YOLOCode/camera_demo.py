@@ -169,14 +169,21 @@ if __name__ == '__main__':
 
             detections = output[:, 1:]
 
-            if detections is not None:
-                mot_tracker.update(detections.cpu())
-                tracked_objects = mot_tracker.update(detections.cpu())
-                if frames != 0:
-                    list(map(lambda x: write(x, pre_output, orig_im), tracked_objects))
-                print("Accuracy : ", len(tracked_objects) / len(detections) * 100, "%")
+            if detections is not None and len(detections[0]) == 7:
+                acc = 0
+                cnt = 0
+                while True:
+                    tracked_objects = mot_tracker.update(detections.cpu())
+                    acc = len(tracked_objects)/len(detections)
+                    cnt += 1
+                    if frames == 0:
+                        break
+                    if acc > 0.8 or cnt > 10:
+                        list(map(lambda x: write(x,pre_output, orig_im), tracked_objects))
+                        break
+                print("Accuracy : ", acc * 100, "%")
                 pre_output = tracked_objects
-                        # out.write(orig_im)
+                # out.write(orig_im)
             cv2.imshow("frame", orig_im)
             key = cv2.waitKey(1)
             if key & 0xFF == ord('q'):

@@ -194,23 +194,31 @@ if __name__ == '__main__':
             
             
             detections = output[:,1:]
-            if detections is not None:
-                tracked_objects = mot_tracker.update(detections.cpu())
-                list(map(lambda x: write(x, orig_im), tracked_objects))
-                print("Accuracy : ",len(tracked_objects)/len(detections)*100,"%")
+            if detections is not None and len(detections[0]) == 7:
+                acc = 0
+                while True:
+                    mot_tracker.update(detections.cpu())
+                    tracked_objects = mot_tracker.update(detections.cpu())
+                    acc = len(tracked_objects) / len(detections)
+                    if frames == 0:
+                        break
+                    if acc > 0.7:
+                        list(map(lambda x: write(x, orig_im), tracked_objects))
+                        break
+                print("Accuracy : ",acc*100,"%")
             # if detections is not None:
             #     tracked_objects = mot_tracker.update(detections.cpu())
-            #     if frames != 0:
-            #         list(map(lambda x: write(x,  orig_im), output[:,1:]))
+            #     list(map(lambda x: write(x, orig_im), tracked_objects))
             #     print("Accuracy : ", len(tracked_objects) / len(detections) * 100, "%")
-                pre_output = tracked_objects
+
+                # pre_output = tracked_objects
             out.write(orig_im)
             key = cv2.waitKey(1)
             if key & 0xFF == ord('q'):
                 break
             frames += 1
             print("FPS of the video is {:5.2f}".format( frames / (time.time() - start)))
-            if frames == 500:
+            if frames == 200:
                 break
             
         else:
