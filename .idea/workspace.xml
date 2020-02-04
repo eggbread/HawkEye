@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="99065e67-21e8-4c1e-9cf1-156650eafadc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/YOLOCode/camera_demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/YOLOCode/camera_demo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YOLOCode/sort.py" beforeDir="false" afterPath="$PROJECT_DIR$/YOLOCode/sort.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,7 +17,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/SORTCode/object_tracker.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1444">
+                <state relative-caret-position="416">
                   <caret line="89" column="37" selection-start-line="89" selection-start-column="37" selection-end-line="89" selection-end-column="37" />
                   <folding>
                     <element signature="e#0#20#0" expanded="true" />
@@ -31,8 +29,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/YOLOCode/camera_demo.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="95">
-                  <caret line="117" selection-start-line="117" selection-end-line="117" />
+                <state relative-caret-position="156">
+                  <caret line="164" column="74" lean-forward="true" selection-start-line="164" selection-start-column="74" selection-end-line="164" selection-end-column="74" />
                   <folding>
                     <element signature="e#0#31#0" expanded="true" />
                   </folding>
@@ -78,8 +76,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/YOLOCode/video_demo.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="3705">
-                  <caret line="210" column="60" selection-start-line="210" selection-start-column="60" selection-end-line="210" selection-end-column="60" />
+                <state relative-caret-position="340">
+                  <caret line="205" column="31" selection-start-line="205" selection-start-column="31" selection-end-line="205" selection-end-column="31" />
                   <folding>
                     <element signature="e#0#31#0" expanded="true" />
                   </folding>
@@ -113,8 +111,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/YOLOCode/sort.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="3914">
-                  <caret line="293" column="63" lean-forward="true" selection-start-line="293" selection-start-column="63" selection-end-line="293" selection-end-column="63" />
+                <state relative-caret-position="174">
+                  <caret line="228" column="19" selection-start-line="228" selection-start-column="19" selection-end-line="228" selection-end-column="19" />
                 </state>
               </provider>
             </entry>
@@ -183,7 +181,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="410" />
     <option name="width" value="980" />
     <option name="height" value="1040" />
@@ -352,7 +350,7 @@
     <entry file="file://$PROJECT_DIR$/YOLOCode/video_demo1.py" />
     <entry file="file://$PROJECT_DIR$/SORTCode/object_tracker.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1444">
+        <state relative-caret-position="416">
           <caret line="89" column="37" selection-start-line="89" selection-start-column="37" selection-end-line="89" selection-end-column="37" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
@@ -360,16 +358,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/YOLOCode/camera_demo1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="43" column="33" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/YOLOCode/camera_demo1.py" />
     <entry file="file://$PROJECT_DIR$/YOLOCode/cam_demo.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
@@ -399,8 +388,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/YOLOCode/video_demo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3705">
-          <caret line="210" column="60" selection-start-line="210" selection-start-column="60" selection-end-line="210" selection-end-column="60" />
+        <state relative-caret-position="340">
+          <caret line="205" column="31" selection-start-line="205" selection-start-column="31" selection-end-line="205" selection-end-column="31" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
@@ -430,27 +419,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/YOLOCode/sort1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3591">
-          <caret line="202" column="41" selection-start-line="202" selection-start-column="41" selection-end-line="202" selection-end-column="41" />
-          <folding>
-            <element signature="e#770#807#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/YOLOCode/sort1.py" />
     <entry file="file://$PROJECT_DIR$/YOLOCode/sort.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3914">
-          <caret line="293" column="63" lean-forward="true" selection-start-line="293" selection-start-column="63" selection-end-line="293" selection-end-column="63" />
+        <state relative-caret-position="174">
+          <caret line="228" column="19" selection-start-line="228" selection-start-column="19" selection-end-line="228" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/YOLOCode/camera_demo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="117" selection-start-line="117" selection-end-line="117" />
+        <state relative-caret-position="156">
+          <caret line="164" column="74" lean-forward="true" selection-start-line="164" selection-start-column="74" selection-end-line="164" selection-end-column="74" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>

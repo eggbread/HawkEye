@@ -25,14 +25,15 @@ def prep_image(img, inp_dim):
     return img_, orig_im, dim
 
 
-def write(x, output, img):
+def write(x, img):
     x = torch.tensor(x)
     c1 = tuple(x[0:2].int())
     c2 = tuple(x[2:4].int())
     cls = int(x[-1])
     label = "{0}".format(classes[cls])
     label += " " + str(int(x[4].item())) + " "
-    confidence = int(((x[2]-x[0])*(x[3]-x[1])).item())
+    size = ((x[2]-x[0])*(x[3]-x[1])).item()
+    confidence = int(round(size,-len(str(round(size * 0.01)))))
     if confidence == 0:
         return;
     label += str(confidence) + " "
