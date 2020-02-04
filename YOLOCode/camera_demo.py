@@ -10,6 +10,7 @@ import pickle as pkl
 import argparse
 from sort import *
 
+
 def prep_image(img, inp_dim):
     """
     Prepare image for inputting to the neural network. 
@@ -25,19 +26,40 @@ def prep_image(img, inp_dim):
     return img_, orig_im, dim
 
 
-def write(x, output, img):
+def write(x, output, img, tracker_objects_data):
+    before_x_data = x
+    min_threshold = 2
     x = torch.tensor(x)
     c1 = tuple(x[0:2].int())
     c2 = tuple(x[2:4].int())
     cls = int(x[-1])
     label = "{0}".format(classes[cls])
     label += " " + str(int(x[4].item())) + " "
-    confidence = int(((x[2]-x[0])*(x[3]-x[1])).item())
+    confidence = int(((x[2] - x[0]) * (x[3] - x[1])).item())
     if confidence == 0:
-        return;
-    label += str(confidence) + " "
+        return
+    if confidence < 0:
+        confidence = -confidence
 
-    color = colors[((cls+1) * int(x[4])) % len(colors)]
+    label += str(confidence) + " "
+    try:
+        trackable_object = tracker_objects_data.get(str(int(before_x_data[4])))
+        all_y_data = [c[1] for c in trackable_object.centroids]
+        mean_result = np.mean(all_y_data)
+        direction = mean_result - before_x_data[1]
+        if mean_result - min_threshold > direction or direction > mean_result + min_threshold:
+            if trackable_object.text == -100:
+                label += "ready"
+            elif direction < 0 and (trackable_object.text == 1 or tracked_objects.text == 0):
+                label += " in"
+            else:
+                label += " out"
+        else:
+            label += " stable"
+    except:
+        label += " stable"
+
+    color = colors[((cls + 1) * int(x[4])) % len(colors)]
     cv2.rectangle(img, c1, c2, color, 3)
     t_size = cv2.getTextSize(label, cv2.FONT_HERSHEY_PLAIN, 1, 1)[0]
     c2 = c1[0] + t_size[0] + 3, c1[1] + t_size[1] + 4
@@ -161,13 +183,13 @@ if __name__ == '__main__':
                 acc = 0
                 cnt = 0
                 while True:
-                    tracked_objects = mot_tracker.update(detections.cpu())
-                    acc = len(tracked_objects)/len(detections)
+                    tracked_objects, tracker_objects_data = mot_tracker.update(detections.cpu())
+                    acc = len(tracked_objects) / len(detections)
                     cnt += 1
                     if frames == 0:
                         break
                     if acc > 0.8 or cnt > 10:
-                        list(map(lambda x: write(x, orig_im), tracked_objects))
+                        list(map(lambda x: write(x, orig_im, tracker_objects_data), tracked_objects))
                         break
                 print("Accuracy : ", acc * 100, "%")
             out.write(orig_im)
