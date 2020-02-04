@@ -28,6 +28,7 @@ import glob
 import time
 import argparse
 from filterpy.kalman import KalmanFilter
+from TrackableObject import *
 
 @jit
 def iou(bb_test,bb_gt):
@@ -182,6 +183,9 @@ class Sort(object):
     self.min_hits = min_hits
     self.trackers = []
     self.frame_count = 0
+    self.before_tracker_objects = {}
+    self.new_tracker_objects = {}
+    self.check_frame_number = 0
 
   def update(self,dets):
     """
@@ -192,6 +196,7 @@ class Sort(object):
 
     NOTE: The number of objects returned may differ from the number of detections provided.
     """
+    self.check_frame_number += 1
     self.frame_count += 1
     #get predicted locations from existing trackers.
     trks = np.zeros((len(self.trackers),5))
@@ -220,16 +225,56 @@ class Sort(object):
     i = len(self.trackers)
     for trk in reversed(self.trackers):
         d = trk.get_state()[0]
+        before_data_tracker_obj = None
+        reshaped_data = None
         if((trk.time_since_update < 1) and (trk.hit_streak >= self.min_hits or self.frame_count <= self.min_hits)):
-          ret.append(np.concatenate((d,[trk.id+1], [trk.objclass])).reshape(1,-1)) # +1 as MOT benchmark requires positive
+          reshaped_data = np.concatenate((d,[trk.id+1], [trk.objclass])).reshape(1,-1)
+          ret.append(reshaped_data) # +1 as MOT benchmark requires positive
+          try:
+            before_data_tracker_obj = self.before_tracker_objects.get(str(int(reshaped_data[0][4])))
+          except:
+            before_data_tracker_obj = None
         i -= 1
         #remove dead tracklet
         if(trk.time_since_update > self.max_age):
           self.trackers.pop(i)
+        elif reshaped_data is not None:
+          middle_x = (reshaped_data[0][0] + reshaped_data[0][2])/2
+          middle_y = (reshaped_data[0][1] + reshaped_data[0][3])/2
+          if before_data_tracker_obj is not None:
+            before_data_tracker_obj.centroids.append((middle_x, middle_y))
+            self.new_tracker_objects[before_data_tracker_obj.object_id] = before_data_tracker_obj
+          else:
+            before_data_tracker_obj = TrackableObject(str(int(reshaped_data[0][4])), (middle_x, middle_y))
+            self.new_tracker_objects[str(int(reshaped_data[0][4]))] = before_data_tracker_obj
+
+          square_area = (reshaped_data[0][2] - reshaped_data[0][0]) * (reshaped_data[0][1] - reshaped_data[0][3])
+          if square_area < 0:
+            square_area = -square_area
+          before_data_tracker_obj.stored_size.append(square_area)
+          if self.check_frame_number % 3 == 0:
+            self.check_frame_number = 0
+            all_size = before_data_tracker_obj.stored_size
+            before_max_size = before_data_tracker_obj.max_size
+            before_min_size = before_data_tracker_obj.min_size
+            before_data_tracker_obj.max_size = max(all_size)
+            before_data_tracker_obj.min_size = min(all_size)
+            before_data_tracker_obj.stored_size = []
+            if before_max_size == -1:
+              before_data_tracker_obj.text = -100
+            elif before_max_size < before_data_tracker_obj.max_size and before_min_size < before_data_tracker_obj.min_size:
+              before_data_tracker_obj.text = 1
+            elif before_max_size < before_data_tracker_obj.max_size and before_min_size < before_data_tracker_obj.min_size:
+              before_data_tracker_obj.text = -1
+            else:
+              before_data_tracker_obj.text = 0
+
     if(len(ret)>0):
-      return np.concatenate(ret)
-    return np.empty((0,5))
-    
+      self.before_tracker_objects = self.new_tracker_objects
+      return np.concatenate(ret), self.before_tracker_objects
+    self.before_tracker_objects = self.new_tracker_objects
+    return np.empty((0,5)), self.before_tracker_objects
+
 def parse_args():
     """Parse input arguments."""
     parser = argparse.ArgumentParser(description='SORT demo')
