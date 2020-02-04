@@ -1,20 +1,14 @@
 from __future__ import division
 import time
 import torch
-import torch.nn as nn
 from torch.autograd import Variable
-import numpy as np
 import cv2
 from util import *
 from darknet import Darknet
 from preprocess import prep_image, inp_to_image, letterbox_image
-import pandas as pd
-import random
 import pickle as pkl
 import argparse
 from sort import *
-from PIL import Image
-
 
 def prep_image(img, inp_dim):
     """
@@ -38,16 +32,11 @@ def write(x, output, img):
     cls = int(x[-1])
     label = "{0}".format(classes[cls])
     label += " " + str(int(x[4].item())) + " "
-    confidence = int((x[2] * x[3]).item())
+    confidence = int(((x[2]-x[0])*(x[3]-x[1])).item())
     if confidence == 0:
         return;
     label += str(confidence) + " "
-    for i in output:
-        if i[4] == x[4]:
-            if i[1] > x[1]:
-                label += "come"
-            else:
-                label += "out"
+
     color = colors[((cls+1) * int(x[4])) % len(colors)]
     cv2.rectangle(img, c1, c2, color, 3)
     t_size = cv2.getTextSize(label, cv2.FONT_HERSHEY_PLAIN, 1, 1)[0]
@@ -126,9 +115,8 @@ if __name__ == '__main__':
     mot_tracker = Sort()
     classes = load_classes('data/coco.names')
     colors = pkl.load(open("pallete", "rb"))
-    pre_output = None
     while cap.isOpened():
-        if frames % 3 != 0:
+        if frames % 2 != 0:
             frames += 1
             continue
         ret, frame = cap.read()
@@ -179,11 +167,10 @@ if __name__ == '__main__':
                     if frames == 0:
                         break
                     if acc > 0.8 or cnt > 10:
-                        list(map(lambda x: write(x,pre_output, orig_im), tracked_objects))
+                        list(map(lambda x: write(x, orig_im), tracked_objects))
                         break
                 print("Accuracy : ", acc * 100, "%")
-                pre_output = tracked_objects
-                # out.write(orig_im)
+            out.write(orig_im)
             cv2.imshow("frame", orig_im)
             key = cv2.waitKey(1)
             if key & 0xFF == ord('q'):
