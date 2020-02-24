@@ -109,7 +109,7 @@ if __name__ == '__main__':
     if CUDA:
         model.cuda()
 
-    cap = cv2.VideoCapture("../../car.mp4")
+    cap = cv2.VideoCapture("../../flyingBirds.mp4")
 
     assert cap.isOpened(), 'Cannot capture source'
 
@@ -177,18 +177,19 @@ if __name__ == '__main__':
 
                 if detections is not None and len(detections[0]) == 7:
                     tracked_objects = mot_tracker.update_trigger(detections.cpu())
-                    tracked_objects2 = mot_tracker2.update(detections.cpu())
+                    # tracked_objects2 = mot_tracker2.update(detections.cpu())
+                    # list(map(lambda x: hawkEye.write(x, orig_im), detections))
                     list(map(lambda x: hawkEye.write(x, orig_im), tracked_objects))
-
                 if hawkEye.y_axios > 0:
                     if hawkEye.clickFlag:
                         hawkEye.clickFlag = False
                         mot_tracker.setY_axios(hawkEye.y_axios)
                     cv2.line(orig_im,(0, hawkEye.y_axios), (frame_width, hawkEye.y_axios), (128,25,185), 3)
+                    # test.write(detections,tracked_objects,hawkEye.y_axios)
+                    # cv2.imwrite("./imgs/frame"+str(frames)+".jpg",orig_im)
                 out.write(orig_im)
-                test.write([len(detections), len(tracked_objects), len(tracked_objects2)])
-                # cv2.imwrite("./imgs/frame"+str(frames)+".jpg",orig_im)
-                # cv2.imshow("frame", orig_im)
+                # test.write([len(detections), len(tracked_objects), len(tracked_objects2)])
+                cv2.imshow("frame", orig_im)
                 key = cv2.waitKey(1)
                 if key & 0xFF == ord('q'):
                     break

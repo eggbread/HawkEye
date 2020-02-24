@@ -249,11 +249,11 @@ class Sort(object):
         size = int(round(size,-len(str(int(round(size * 0.01))))))
         decision = []
         if((trk.time_since_update < 1) and (trk.hit_streak >= self.min_hits or self.frame_count <= self.min_hits)):
-          if y_axis > self.y_axios and size > trk.size:
-            if trk.y_axis > self.y_axios:
-              decision = [2] #warning
-            else:
+          if y_axis > self.y_axios:
+            if trk.y_axis < self.y_axios and size > trk.size:
               decision = [1] #come
+            else:
+              decision = [2] #warning
           else:
             decision = [0]
           ret.append(np.concatenate((d,[trk.id+1], [trk.objclass], [size], decision)).reshape(1,-1))

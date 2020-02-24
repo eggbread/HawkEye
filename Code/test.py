@@ -10,10 +10,17 @@ class test:
             self.book = openpyxl.Workbook()
         self.sheet = self.book.active
         self.sheet['A1'] = 'YOLOv3'
-        self.sheet['B1'] = "HawkEye"
-        self.sheet['C1'] = "SORT"
-    def write(self,result):
-        self.sheet.append(result)
+        self.sheet['B1'] = "come"
+        self.sheet['C1'] = "warning"
+        self.sheet['D1'] = "Accuracy"
+    def write(self,yolo,hawkEye,y_axis):
+        yolo = list(filter(lambda x: x[3]>y_axis,yolo))
+        come = list(filter(lambda x: x[-1]==1,hawkEye))
+        warn = list(filter(lambda x: x[-1]==2,hawkEye))
+        if len(yolo) == 0:
+            self.sheet.append([len(yolo), len(come), len(warn),0])
+        else:
+            self.sheet.append([len(yolo),len(come),len(warn),(len(warn)+len(come))/len(yolo)])
     def endWrite(self):
         self.book.save(filename=self.filename)
 if __name__ == '__main__':
