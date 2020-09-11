@@ -1,5 +1,5 @@
-# Real Time Approch Detection using YOLOv3, Deep Sort and Tensorflow
-This repository implements YOLOv3 and Deep SORT in order to perform real-time approach detection.
+# Real Time Approching Detection using YOLOv3, Deep Sort and Tensorflow
+This repository implements YOLOv3 and Deep SORT in order to perform real-time approaching detection.
 Although there is a YOLOv4, In terms of the bird, YOLOv3 shows more accuracy.
 Based on the Line that user can draw, It calculates the object size for decision.
 
