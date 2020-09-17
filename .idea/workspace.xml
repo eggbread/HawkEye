@@ -1,69 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="99065e67-21e8-4c1e-9cf1-156650eafadc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Code/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/SORTCode/PyTorch_Object_Detection.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/SORTCode/PyTorch_Object_Tracking.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/SORTCode/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/SORTCode/config/coco.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/SORTCode/config/coco.names" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/SORTCode/config/download_weights.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/SORTCode/config/yolov3-tiny.cfg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/SORTCode/config/yolov3.cfg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/SORTCode/images/Intersection-Counts.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/SORTCode/images/blueangels-det.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/SORTCode/images/blueangels.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/SORTCode/images/olympic-trials.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/SORTCode/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/SORTCode/object_tracker.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/SORTCode/outpy.avi" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/SORTCode/sort.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/SORTCode/utils/datasets.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/SORTCode/utils/parse_config.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/SORTCode/utils/utils.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/bbox.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/cam_demo.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/camera_demo.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/cfg/tiny-yolo-voc.cfg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/cfg/yolo-drone.cfg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/cfg/yolo-voc.cfg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/cfg/yolo.cfg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/cfg/yolov3.cfg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/darknet.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/data/coco.names" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/data/drone.names" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/data/voc.names" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/detect.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/drone.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/imgs/dog.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/imgs/eagle.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/imgs/giraffe.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/imgs/herd_of_horses.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/imgs/img1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/imgs/img2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/imgs/img3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/imgs/img4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/imgs/messi.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/imgs/person.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/imgs/scream.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/pallete" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/preprocess.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/sort.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/util.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/video_demo.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/video_demo_half.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NoteBook/.ipynb_checkpoints/YOLOv3_SORT-Copy1-checkpoint.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NoteBook/.ipynb_checkpoints/YOLOv3_SORT-checkpoint.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NoteBook/HawkEye_YOLO_V3 (1).ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NoteBook/HawkEye_YOLO_V3.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NoteBook/PyTorch_Object_Tracking.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NoteBook/YOLOv3_SORT-Copy1.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NoteBook/YOLOv3_SORT.ipynb" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/cfg/deep_sort.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/HawkEye.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/HawkEye.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Installation/conda-cpu.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Installation/conda-gpu.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Installation/requirements-gpu.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Installation/requirements.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/labels/coco.names" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deep_sort/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/deep_sort/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deep_sort/detection.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deep_sort/iou_matching.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deep_sort/kalman_filter.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deep_sort/linear_assignment.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deep_sort/nn_matching.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deep_sort/preprocessing.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deep_sort/track.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deep_sort/tracker.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load_weights.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_data/coco_classes.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_data/mars-small128.pb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_data/voc_classes.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_data/yolo_anchors.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/object_tracker.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/freeze_model.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/generate_detections.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weights/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yolov3_tf2/batch_norm.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yolov3_tf2/dataset.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yolov3_tf2/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yolov3_tf2/utils.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,20 +69,27 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JupyterTrust" id="b1243881-420f-4014-a27d-b84edf82e154" />
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="950" />
-    <option name="y" value="-10" />
-    <option name="width" value="979" />
-    <option name="height" value="1049" />
-  </component>
+  <component name="ProjectId" id="1hdmuip5W6t8NwnBuUhcY8d4Se4" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.video_demo (1)">
-    <configuration name="camera_demo" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.darknet_video">
+    <configuration name="darknet_video" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="HawkEye" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -102,12 +97,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/YOLOCode" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/YOLOCode/camera_demo.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/darknet_video.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -206,14 +201,15 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.darknet_video" />
         <item itemvalue="Python.video_demo (1)" />
         <item itemvalue="Python.object_tracker" />
         <item itemvalue="Python.video_demo" />
         <item itemvalue="Python.test" />
-        <item itemvalue="Python.camera_demo" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -224,6 +220,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1579726880416</updated>
+      <workItem from="1600349568844" duration="9141000" />
     </task>
     <servers />
   </component>
@@ -235,6 +232,62 @@
       <are-packages-shown value="true" />
       <is-autoscroll-to-source value="true" />
     </todo-panel>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="2434" height="477" key="GridCell.Tab.0.bottom" timestamp="1600355239936">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2434" height="477" key="GridCell.Tab.0.bottom/1920.0.2560.1440/0.30.1920.1050@1920.0.2560.1440" timestamp="1600355239936" />
+    <state width="2434" height="477" key="GridCell.Tab.0.center" timestamp="1600355239936">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2434" height="477" key="GridCell.Tab.0.center/1920.0.2560.1440/0.30.1920.1050@1920.0.2560.1440" timestamp="1600355239936" />
+    <state width="2434" height="477" key="GridCell.Tab.0.left" timestamp="1600355239936">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2434" height="477" key="GridCell.Tab.0.left/1920.0.2560.1440/0.30.1920.1050@1920.0.2560.1440" timestamp="1600355239936" />
+    <state width="2434" height="477" key="GridCell.Tab.0.right" timestamp="1600355239936">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2434" height="477" key="GridCell.Tab.0.right/1920.0.2560.1440/0.30.1920.1050@1920.0.2560.1440" timestamp="1600355239936" />
+    <state width="2434" height="477" key="GridCell.Tab.1.bottom" timestamp="1600355239936">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2434" height="477" key="GridCell.Tab.1.bottom/1920.0.2560.1440/0.30.1920.1050@1920.0.2560.1440" timestamp="1600355239936" />
+    <state width="2434" height="477" key="GridCell.Tab.1.center" timestamp="1600355239936">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2434" height="477" key="GridCell.Tab.1.center/1920.0.2560.1440/0.30.1920.1050@1920.0.2560.1440" timestamp="1600355239936" />
+    <state width="2434" height="477" key="GridCell.Tab.1.left" timestamp="1600355239936">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2434" height="477" key="GridCell.Tab.1.left/1920.0.2560.1440/0.30.1920.1050@1920.0.2560.1440" timestamp="1600355239936" />
+    <state width="2434" height="477" key="GridCell.Tab.1.right" timestamp="1600355239936">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2434" height="477" key="GridCell.Tab.1.right/1920.0.2560.1440/0.30.1920.1050@1920.0.2560.1440" timestamp="1600355239936" />
+    <state x="2725" y="370" width="1022" height="737" key="SettingsEditor" timestamp="1600352871472">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state x="2725" y="370" width="1022" height="737" key="SettingsEditor/1920.0.2560.1440/0.30.1920.1050@1920.0.2560.1440" timestamp="1600352871472" />
+    <state x="3022" y="645" width="428" height="187" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600352756680">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state x="3022" y="645" width="428" height="187" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.0.2560.1440/0.30.1920.1050@1920.0.2560.1440" timestamp="1600352756680" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -259,6 +312,11 @@
           <line>16</line>
           <option name="timeStamp" value="76" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/darknet.py</url>
+          <line>23</line>
+          <option name="timeStamp" value="81" />
+        </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
@@ -268,59 +326,14 @@
         </breakpoint>
       </default-breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="config['deep_sort']['N_INIT']" language="Python" />
+        <watch expression="config.deep_sort" language="Python" />
+      </configuration>
+    </watches-manager>
   </component>
-  <component name="debuggerHistoryManager">
-    <expressions id="watch">
-      <expression>
-        <expression-string>yolo[0]</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>output[0]</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>len(output[0])</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>output</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>torch.stack(output)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>torch.cat(output[0],dim=0)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>torch.cat(output[0],dim=1)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>torch.cat(output,dim=1)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>torch.cat(output)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>torch.cat(list(filter(lambda x:x[-1].item() in classList, output)),1)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-    </expressions>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/HawkEye$darknet_video.coverage" NAME="darknet_video Coverage Results" MODIFIED="1600353912859" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
