@@ -111,10 +111,6 @@ class HawkEye():
                 print('Video has ended or failed, try a different video format!')
                 break
 
-            if self.y_axis < height:
-                cv2.line(frame, (0, self.y_axis), (int(vid.get(cv2.CAP_PROP_FRAME_WIDTH)), self.y_axis), (255, 0, 0),
-                         3)
-
             frame_size = frame.shape[:2]
             image_data = cv2.resize(frame, (input_size, input_size))
             image_data = image_data / 255.
@@ -173,7 +169,7 @@ class HawkEye():
             # allowed_classes = list(class_names.values())
 
             # custom allowed classes (uncomment line below to customize tracker for only people)
-            allowed_classes = ['person']
+            allowed_classes = ['car']
 
             # loop through objects and use class index to get class name, allow only classes in allowed_classes list
             names = []
@@ -216,6 +212,11 @@ class HawkEye():
             print("Detect : ",len(detections))
             print("Track : ",len(self.tracker.tracks))
             # update tracks
+
+            if self.y_axis < height:
+                cv2.line(frame, (0, self.y_axis), (int(vid.get(cv2.CAP_PROP_FRAME_WIDTH)), self.y_axis), (255, 0, 0),
+                         3)
+
             for track in self.tracker.tracks:
                 if not track.is_confirmed() or track.time_since_update > 1:
                     continue
