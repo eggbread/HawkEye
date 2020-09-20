@@ -11,6 +11,7 @@ import argparse
 from sort import *
 from test import *
 from SORTCode import sort as sort2
+import numpy as np
 
 class HawkEye():
     def __init__(self):
@@ -172,10 +173,16 @@ if __name__ == '__main__':
                 for i in range(output.shape[0]):
                     output[i, [1, 3]] = torch.clamp(output[i, [1, 3]], 0.0, im_dim[i, 0])
                     output[i, [2, 4]] = torch.clamp(output[i, [2, 4]], 0.0, im_dim[i, 1])
-
+                
+                targets = ['person']
+                delete = []
                 detections = output[:, 1:]
 
                 if detections is not None and len(detections[0]) == 7:
+                    for idx, det in enumerate(detections):
+                        if classes[int(det[-1])] not in targets:
+                            delete.append(idx)
+                    detections = np.delete(detections.cpu(), delete, axis=0)
                     tracked_objects = mot_tracker.update_trigger(detections.cpu())
                     # tracked_objects2 = mot_tracker2.update(detections.cpu())
                     # list(map(lambda x: hawkEye.write(x, orig_im), detections))
